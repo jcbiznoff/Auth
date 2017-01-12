@@ -4,6 +4,7 @@ import { Button, Card, CardSection, Input, Spinner } from './common';
 import firebase from 'firebase';
 
 class LoginForm extends Component {
+    //states!!
     state = { email: '', password: '', error: '', loading: false };
 
     onButtonPress() {
@@ -40,6 +41,7 @@ class LoginForm extends Component {
         });
     }
 
+    //common pattern to use helper function
     rednerButton() {
         if (this.state.loading) {
             return <Spinner size="small"/>

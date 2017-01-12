@@ -7,8 +7,8 @@ import LoginForm from './components/LoginForm';
 class App extends Component {
     state = { loggedIn: null };
 
-    //initializtion of firebase
     componentWillMount() {
+        //initializtion of firebase
         firebase.initializeApp({
             apiKey: 'AIzaSyBQvjGj9kF1_wN0W97FOdLsx_Du8QJvVAw',
             authDomain: 'auth-eae87.firebaseapp.com',
@@ -17,6 +17,7 @@ class App extends Component {
             messagingSenderId: '133599990804'
         });
 
+        //firebase can check if user is logged in
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ loggedIn: true });
@@ -26,6 +27,7 @@ class App extends Component {
         });
     }
     renderContent() {
+        //different state
         switch (this.state.loggedIn) {
             case true:
                 return (
